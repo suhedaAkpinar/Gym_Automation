@@ -12,24 +12,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Anasayfa {
-	//Suheda Akpýnar 15010011008
+	
 	/*
 		 kursiyer.txt                                    
 		#5050-Ahmet Ada-23
-		*1000-Yüzme
+		*1000-YÃ¼zme
 		*1040-Judo
-		#6085-Selda Þahin-35
+		#6085-Selda Ãžahin-35
 		*1020-Yoga
 		#5090-Deniz Arslan-30
-		*1000-Yüzme
+		*1000-YÃ¼zme
 		*1060-Plates
-		#6174-Tarýk Kýlýç-42
+		#6174-TarÃ½k KÃ½lÃ½Ã§-42
 		*1010-Fitness
 		*1030-Tekvando
 		*1050-Boks
 		*
 		*kurs.txt
-		*1000-Yüzme
+		*1000-YÃ¼zme
          1010-Fitness
          1020-Yoga
          1030-Tekvando
@@ -41,7 +41,7 @@ public class Anasayfa {
 	ArrayList<Kursiyer> kursiyerler = new ArrayList<Kursiyer>();
 	ArrayList<Kurs> kurslar = new ArrayList<Kurs>();
 	
-	void KursiyerOku() throws Throwable {//kursiyer.txt dosyamýzý okuyor.
+	void KursiyerOku() throws Throwable {//kursiyer.txt dosyamÃ½zÃ½ okuyor.
 		File f = new File("kursiyer.txt");
 		if(!f.exists()) {
 			f.createNewFile();
@@ -105,15 +105,15 @@ public class Anasayfa {
 	
 	void KursEkle() {
 		int id = verigirisi_int("KursID :");
-		if(KursIdKontrol(id)) { //kursýd yi kontrol ediyor bir ustteki fonksiyonda daha sonra ekleme yapýyor
-			String kursAdi = verigirisi("Kurs Adý: ");
+		if(KursIdKontrol(id)) { //kursÃ½d yi kontrol ediyor bir ustteki fonksiyonda daha sonra ekleme yapÃ½yor
+			String kursAdi = verigirisi("Kurs AdÃ½: ");
 			Kurs kurs = new Kurs();
 			kurs.setKursId(id);
 			kurs.setKursAd(kursAdi);
 			kurslar.add(kurs);
 		}
 		else {
-			System.out.println("Bu id kayýtlý");
+			System.out.println("Bu id kayÃ½tlÃ½");
 			KursEkle();
 		}
 	}
@@ -121,7 +121,7 @@ public class Anasayfa {
 	
 	
 	void KursListele() {
-		System.out.println("Kurs Id\tKurs Adý");
+		System.out.println("Kurs Id\tKurs AdÃ½");
 		for (Kurs kurs : kurslar) {
 			System.out.println(kurs.getKursId() +"\t"+ kurs.getKursAd());
 		}
@@ -142,23 +142,23 @@ public class Anasayfa {
 		if(KursiyerIdKontrol(id)) {
 			Kursiyer kursiyer = new Kursiyer();
 			kursiyer.setKursiyerId(id);
-			String kursiyerAdiSoyadi = verigirisi("Kursiyer Adý Soyadý: ");
+			String kursiyerAdiSoyadi = verigirisi("Kursiyer AdÃ½ SoyadÃ½: ");
 			kursiyer.setKursiyerAdSoyad(kursiyerAdiSoyadi);
 			int kursiyerYas = verigirisi_int("Kursiyer Yas: ");
 			kursiyer.setKursiyerYas(kursiyerYas);
 			boolean durum1=true;
 			do {
 				ekranayaz("1) Kurs Ekle ", true);
-				ekranayaz("2) Kaydý Tamamla", true);
-				ekranayaz("3) Menu Ekranýna Dön", true);
+				ekranayaz("2) KaydÃ½ Tamamla", true);
+				ekranayaz("3) Menu EkranÃ½na DÃ¶n", true);
 				int secim = verigirisi_int("Sec:");
 				switch (secim) { 
 				case 1:
-					for(int i=0;i<kurslar.size();i++) {//kurs secimi icin kayýtlý kurslarý listeler.
+					for(int i=0;i<kurslar.size();i++) {//kurs secimi icin kayÃ½tlÃ½ kurslarÃ½ listeler.
 						System.out.println((i+1)+"\t"+ kurslar.get(i).getKursId() +"\t" + kurslar.get(i).getKursAd());
 	 				}
 					System.out.println(kurslar.size()+1 +"\t\tVazgec");
-					int kurssecimi = verigirisi_int("Kurs Sec (Secmek istediginiz kursun numarasýný girin):");
+					int kurssecimi = verigirisi_int("Kurs Sec (Secmek istediginiz kursun numarasÃ½nÃ½ girin):");
 					if(kurssecimi <= kurslar.size()) {
 						kursiyer.alinanKurslar.add(kurslar.get(kurssecimi-1));
 					}
@@ -178,7 +178,7 @@ public class Anasayfa {
 			}while(durum1);
 		}
 		else {
-			System.out.println("Bu id kayýtlý!");
+			System.out.println("Bu id kayÃ½tlÃ½!");
 			KursiyerEkle();
 		}
 	}
@@ -196,7 +196,7 @@ public class Anasayfa {
 				}
 			}
 		}
-		if(sayi == 0) System.out.println("Bulunamadý!");
+		if(sayi == 0) System.out.println("BulunamadÃ½!");
 	}
 	
 	
@@ -210,12 +210,12 @@ public class Anasayfa {
 				
 			}
 		}
-		if(!varMi) System.out.println("Bulunamadý!");
+		if(!varMi) System.out.println("BulunamadÃ½!");
 	}
 	
 	
 	void KursiyerListele() {
-		System.out.println("Tüm Kursiyerler");
+		System.out.println("TÃ¼m Kursiyerler");
 		for (Kursiyer kursiyer : kursiyerler) {
 			System.out.println(kursiyer.getKursiyerId()+" " + kursiyer.getKursiyerAdSoyad() +" "+ kursiyer.getKursiyerYas());
 		} 
@@ -223,7 +223,7 @@ public class Anasayfa {
 	
 	
 	void KursiyerAyrintiliListele() {
-		System.out.println("Tüm Kursiyerler ve Aldýklarý Kurslar");
+		System.out.println("TÃ¼m Kursiyerler ve AldÃ½klarÃ½ Kurslar");
 		for (Kursiyer kursiyer : kursiyerler) {
 			System.out.println(kursiyer.getKursiyerId()+" " + kursiyer.getKursiyerAdSoyad() +" "+ kursiyer.getKursiyerYas());
 			for (Kurs kurs : kursiyer.alinanKurslar) {
@@ -241,7 +241,7 @@ public class Anasayfa {
 				return kursiyer;
 			}
 		}
-		if(!varMi) System.out.println("Bulunamadý!");
+		if(!varMi) System.out.println("BulunamadÃ½!");
 		return null;
 	}
 	
@@ -256,15 +256,15 @@ public class Anasayfa {
 				tutar=400;//Aylik ucret hesaplandi
 				break;
 				
-			case 2: // Bu kampanya 2 kurs alan kursiyerler içindir. Bu kursiyerlere ikinci kurs %15 indirimlidir. 
-				tutar = 740; //1 aylýk ucret hesaplandý
+			case 2: // Bu kampanya 2 kurs alan kursiyerler iÃ§indir. Bu kursiyerlere ikinci kurs %15 indirimlidir. 
+				tutar = 740; //1 aylÃ½k ucret hesaplandÃ½
 				
 				break;
-			case 3: // Bu kampanya 3 kurs alan kursiyerler içindir. Bu kursiyerlere 3.kurs %25 indirimlidir
+			case 3: // Bu kampanya 3 kurs alan kursiyerler iÃ§indir. Bu kursiyerlere 3.kurs %25 indirimlidir
 				tutar = 1100;
 				break;
 			
-			default://  Bu kampanya 3 kurs üstü alan kursiyerler içindir. Bu kursiyerler ise her kurs %10 indirimlidir.
+			default://  Bu kampanya 3 kurs Ã¼stÃ¼ alan kursiyerler iÃ§indir. Bu kursiyerler ise her kurs %10 indirimlidir.
 				for(int i=0;i<sayi;i++) {
 					tutar += 4*((float)(100*0.9));
 				}
@@ -332,11 +332,11 @@ public class Anasayfa {
 			ekranayaz("4) Kursiyer Arama(kursiyerAdSoyad)", true);
 			ekranayaz("5) Kursiyer Sil(kursiyerId)", true);
 			ekranayaz("6) Kursiyer Listele", true);
-			ekranayaz("7) Kursiyer Ayrýntýlý Listele", true);
-			ekranayaz("8) Kursiyerin Ödeyeceði Tutar Hesaplama(kursiyerId)", true);
+			ekranayaz("7) Kursiyer AyrÃ½ntÃ½lÃ½ Listele", true);
+			ekranayaz("8) Kursiyerin Ã–deyeceÃ°i Tutar Hesaplama(kursiyerId)", true);
 			ekranayaz("9) Bitir", true);
 			
-			String secim=verigirisi("Seçim Yapýnýz:");
+			String secim=verigirisi("SeÃ§im YapÃ½nÃ½z:");
 			
 			switch (secim) {
 			case "1":
@@ -352,7 +352,7 @@ public class Anasayfa {
 				break;
 				
 			case "4":
-				KursiyerArama(verigirisi("Adý Soyadý:"));
+				KursiyerArama(verigirisi("AdÃ½ SoyadÃ½:"));
 				break;
 			
 			case "5":
@@ -370,7 +370,7 @@ public class Anasayfa {
 			case "8":
 				KursiyerOdemeTutariHesaplama(verigirisi_int("Id :"));
 				break;
-			///Burada tüm bilgileri isledikten sonra enson bitir tusuna basýnca dosyaya yazma islemi gerceklestiriyor.
+			///Burada tÃ¼m bilgileri isledikten sonra enson bitir tusuna basÃ½nca dosyaya yazma islemi gerceklestiriyor.
 			case "9":
 				KursiyerYaz();
 				KursYaz();
@@ -390,7 +390,7 @@ public class Anasayfa {
 		new Anasayfa();
 	}
 	
-	//Veri girisi alýyor.
+	//Veri girisi alÃ½yor.
 	public String verigirisi(String metin)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -398,7 +398,7 @@ public class Anasayfa {
 		return sc.nextLine();
 	}
 	
-	//int veri giriþi için tanýmlý metot
+	//int veri giriÃ¾i iÃ§in tanÃ½mlÃ½ metot
 	public int verigirisi_int(String metin)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -413,7 +413,7 @@ public class Anasayfa {
 				veri = sc.nextInt();
 				durum=false;
 			}catch(Exception ex){
-				ekranayaz("Girilen Bilgi Hatalý!", true);
+				ekranayaz("Girilen Bilgi HatalÃ½!", true);
 			}
 		}
 		while(durum);
